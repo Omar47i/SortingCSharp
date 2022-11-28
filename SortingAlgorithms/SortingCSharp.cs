@@ -14,7 +14,7 @@ int[] arr3 = new int[] { 5, 2, 4, 1, 9, 8 };
 
 SelectionSort.Sort(arr1);
 InsertionSort.Sort(arr2);
-InsertionSort.Sort(arr3);
+BubbleSort.Sort(arr3);
 
 ConsoleUtils.DisplayArray(arr1);
 ConsoleUtils.DisplayArray(arr2);
@@ -92,15 +92,18 @@ namespace SortingAlgorithms
 
             do
             {
+                exchanged = false;
+
                 for (int i = 0; i < len - 1; i++)
                 {
                     if (!IsLess(arr[i], arr[i + 1]))
                     {
                         Exchange(arr, i, i + 1);
                         exchanged = true;
-                        len--;
                     }
                 }
+
+                len--;
             }
 
             while (exchanged);
