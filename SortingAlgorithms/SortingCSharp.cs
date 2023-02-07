@@ -91,25 +91,25 @@ namespace SortingAlgorithms
         public static void Sort(int[] arr)
         {
             bool exchanged = false;
-            int len = arr.Length;
 
-            do
+            for (int i = 0; i < arr.Length - 1; i++)
             {
                 exchanged = false;
 
-                for (int i = 0; i < len - 1; i++)
+                for (int j = 0; j < arr.Length - 1 - i; j++)
                 {
-                    if (!IsLess(arr[i], arr[i + 1]))
+                    if (!IsLess(arr[j], arr[j + 1]))
                     {
-                        Exchange(arr, i, i + 1);
+                        Exchange(arr, j, j + 1);
                         exchanged = true;
                     }
                 }
 
-                len--;
+                if (exchanged == false)
+                {
+                    break;
+                }
             }
-
-            while (exchanged);
         }
 
         private static bool IsLess(IComparable n1, IComparable n2)
